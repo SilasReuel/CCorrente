@@ -68,8 +68,6 @@ namespace Projeto
         public bool Transferir(CCorrente destino, double valor)
         {
             if (destino.status && Sacar(valor) && destino.Depositar(valor)){
-                /*transacao[transacao.Count - 1].duplicata = destino.transacao[destino.transacao.Count - 1];
-                destino.transacao[destino.transacao.Count + 1].duplicata = transacao[transacao.Count-1];*/
                 Console.WriteLine("Transferência realizada com sucesso!");
                 return true;
             }

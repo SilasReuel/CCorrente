@@ -29,13 +29,6 @@ do
                     {
                         Console.WriteLine(cc.ToString());
                     }
-
-                   /* for (int i = 0; i < contas.Count; i++)
-                    {
-                        CCorrente cc = contas[i];
-                        Console.WriteLine(cc.ToString());
-                    }*/
-
                     break;
                 case 2:
                     foreach (var item in contas)
