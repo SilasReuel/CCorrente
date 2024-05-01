@@ -37,34 +37,52 @@ namespace Projeto
 
         public bool Sacar(double valor)
         {
-            if (saldo - valor > -limite)
+            if (status == true && saldo >= valor && valor <= limite)
             {
                 saldo -= valor;
                 transacao.Add(new Transacao(valor, 'S'));
                 return true;
             }
-            return false;
+            else
+            {
+                Console.WriteLine("Saque não pode ser realizado. Verifique seu saldo ou limite de saque!");
+                return false;
+            }
         }
 
         public bool Depositar(double valor)
         {
-            if (valor > 0)
+            if (status == true && valor > 0)
             {
                 saldo += valor;
                 transacao.Add(new Transacao(valor, 'D'));
                 return true;
             }
-            return false;
+            else
+            {
+                Console.WriteLine("Depósito não realizado, verifique seu saldo");
+                return false;
+            }
         }
 
         public bool Transferir(CCorrente destino, double valor)
         {
             if (destino.status && Sacar(valor) && destino.Depositar(valor)){
-                transacao[transacao.Count - 1].duplicata = destino.transacao[destino.transacao.Count - 1];
-                destino.transacao[destino.transacao.Count + 1].duplicata = transacao[transacao.Count-1];
+                /*transacao[transacao.Count - 1].duplicata = destino.transacao[destino.transacao.Count - 1];
+                destino.transacao[destino.transacao.Count + 1].duplicata = transacao[transacao.Count-1];*/
+                Console.WriteLine("Transferência realizada com sucesso!");
                 return true;
             }
-            return false;
+            else
+            {
+                Console.WriteLine("Tranferência não realizada, verifique se o valor é válido ou se a conta existe");
+                return false;
+            }
+        }
+
+        public override string ToString()
+        {
+            return "CC: "+ this.numero +"limite: "+ this.limite;
         }
     }
 }
