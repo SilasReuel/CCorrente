@@ -11,11 +11,13 @@ namespace Projeto
         public double valor;
         public char tipo;
         public Transacao duplicata;
+        public Conta conta;
 
-        public Transacao(double valor, char tipo)
+        public Transacao(double valor, char tipo, Conta conta)
         {
             this.valor = valor;
             this.tipo = tipo;
+            this.conta = conta;
         }
     }
 }
