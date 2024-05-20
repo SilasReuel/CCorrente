@@ -33,19 +33,19 @@ do
                 case 2:
                     foreach (var item in contas)
                     {
-                        if (item.status)
+                        if (item.Status)
                         {
-                            Console.WriteLine("Conta: " + item.numero+ " -->> Saldo: " + item.saldo);
+                            Console.WriteLine("Conta: " + item.Numero+ " -->> Saldo: " + item.Saldo);
                         }
                     }
                     break;
                 case 3:
                     Console.WriteLine("Informe o número da conta a ser excluída: ");
                     string numExc = Console.ReadLine();
-                    CCorrente receb = contas.Find(x => x.numero == numExc);
+                    CCorrente receb = contas.Find(x => x.Numero == numExc);
                     if (receb != null)
                     {
-                        receb.status = false;
+                        receb.Status = false;
                     }
                     else
                     {
@@ -68,12 +68,12 @@ do
                 case 1:
                     Console.WriteLine("Digite a conta que deseja verificar: ");
                     string numR = Console.ReadLine();
-                    CCorrente receb = contas.Find(contas => contas.numero == numR);
+                    CCorrente receb = contas.Find(contas => contas.Numero == numR);
                     if (receb != null)
                     {
-                        if (receb.status == true)
+                        if (receb.Status == true)
                         {
-                            Console.WriteLine("Conta: " + numR + " -->> Existe\nSaldo: " + receb.saldo + "\nLimite: " + receb.limite);
+                            Console.WriteLine("Conta: " + numR + " -->> Existe\nSaldo: " + receb.Saldo + "\nLimite: " + receb.Limite);
                         }
                         else
                         {
@@ -88,8 +88,8 @@ do
                 case 2:
                     Console.WriteLine("Digite o número da conta: ");
                     num = Console.ReadLine();
-                    receb = contas.Find(contas => contas.numero == num);
-                    if (receb != null && receb.status)
+                    receb = contas.Find(contas => contas.Numero == num);
+                    if (receb != null && receb.Status)
                     {
                         Console.WriteLine("Digite o valor do saque: ");
                         if (receb.Sacar(Convert.ToDouble(Console.ReadLine())))
@@ -105,8 +105,8 @@ do
                 case 3:
                     Console.WriteLine("Digite o número da conta: ");
                     num = Console.ReadLine();
-                    receb = contas.Find(contas => contas.numero == num);
-                    if (receb != null && receb.status)
+                    receb = contas.Find(contas => contas.Numero == num);
+                    if (receb != null && receb.Status)
                     {
                         Console.WriteLine("Digite o valor do depósito: ");
                         if (receb.Depositar(Convert.ToDouble(Console.ReadLine())))
@@ -122,13 +122,13 @@ do
                 case 4:
                     Console.WriteLine("Digite o número da conta: ");
                     num = Console.ReadLine();
-                    receb = contas.Find(contas => contas.numero == num);
-                    if (receb != null && receb.status)
+                    receb = contas.Find(contas => contas.Numero == num);
+                    if (receb != null && receb.Status)
                     {
                         Console.WriteLine("Digite o número da conta destino:");
                         num = Console.ReadLine();
-                        CCorrente recebDest = contas.Find(contas => contas.numero == num);
-                        if (recebDest != null && recebDest.status)
+                        CCorrente recebDest = contas.Find(contas => contas.Numero == num);
+                        if (recebDest != null && recebDest.Status)
                         {
                             Console.WriteLine("Digite o valor do depósito: ");
                             if (receb.Transferir(recebDest, Convert.ToDouble(Console.ReadLine())))

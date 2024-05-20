@@ -12,12 +12,12 @@ namespace Projeto
 
         public CPoupanca()
         {
-
+            limite = 0;
         }
 
-        public CPoupanca(string numero)
+        public CPoupanca(string numero):base(numero) 
         {
-            this.numero = numero;
+            limite = 0;
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Projeto
 {
     public class Conta
     {
-        public string numero;
-        public double saldo;
-        public double limite;
-        public bool status;
-        public List<Transacao> transacao;
+        protected string numero;
+        protected double saldo;
+        protected double limite;
+        protected bool status;
+        protected List<Transacao> transacao;
 
         public Conta()
         {
@@ -22,6 +22,53 @@ namespace Projeto
         public Conta(string numero)
         {
             this.numero = numero;
+        }
+
+        public double Saldo
+        {
+            get => this.saldo;
+            set
+            {
+                this.saldo = value;
+            }
+        }
+
+        public double Limite
+        {
+            get => this.limite;
+            set
+            {
+                if (value >= 0)
+                {
+                    this.limite = value;
+                }
+            }
+        }
+
+        public string Numero
+        {
+            get => this.numero;
+            set
+            {
+                this.numero = value;
+            }
+        }
+
+        public bool Status{
+            get => this.status;
+            set
+            {
+                this.status = value;
+            }
+        }
+
+        public List<Transacao> Transacao
+        {
+            get => this.transacao;
+            set
+            {
+                this.transacao = value;
+            }
         }
 
         public bool Sacar(double valor)

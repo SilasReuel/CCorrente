@@ -10,12 +10,10 @@ namespace Projeto
 {
     public class CCorrente:Conta
     {
-        public bool especial;
+        private bool especial;
 
-        public CCorrente(string numero, double limite):this()
+        public CCorrente(string numero, double limite):base(numero)
         {
-
-            this.numero = numero;
 
             this.limite = limite;
         }
@@ -33,5 +31,7 @@ namespace Projeto
         {
             return "CC: "+ this.numero +"limite: "+ this.limite;
         }
+
+
     }
 }
